@@ -1,7 +1,13 @@
 //Ejemplos de confictos de git
 Primer linea agregada: Class name();
+<<<<<<< HEAD
 Segunda clase agregada: Class Perro(){
 	String nombre_Perro, raza_perro;
 	int edad_perro;
 }
 Tercera clase agregada: Class Gatos():
+=======
+Segunda clase agregada: Class Perro();
+Tercera clase agregada: Class Gatos();
+Yo también agregue algo.
+>>>>>>> bd893e902d8a2a00f2204d06efb583c3042f84f3
