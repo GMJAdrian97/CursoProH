@@ -1,1 +1,3 @@
 Primer linea agregada: Class name();
+Segunda clase agregada: Class Perro();
+Tercera clase agregada: Class Gatos():
