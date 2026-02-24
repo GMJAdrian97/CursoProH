@@ -1,4 +1,10 @@
 Primer linea agregada: Class name();
+<<<<<<< HEAD
 
 
 tonotos mas el Osvaldo no es cierto bromi 
+=======
+Segunda clase agregada: Class Perro();
+Tercera clase agregada: Class Gatos();
+Yo también agregue algo.
+>>>>>>> bd893e902d8a2a00f2204d06efb583c3042f84f3
