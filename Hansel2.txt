@@ -1,0 +1,2 @@
+sout("Hola");
+sout("Adios");
