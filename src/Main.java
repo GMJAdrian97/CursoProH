@@ -1,5 +1,11 @@
 import POO.*;
+import PelisSeries.Catalogo;
+import PelisSeries.Contenido;
+import PelisSeries.Pelicula;
+import PelisSeries.Serie;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -104,7 +110,7 @@ import java.util.Scanner;
 
 }*/
 
-public class Main {
+/*public class Main {
 
     public static void main(String[] args) {
         String nombre, especie;
@@ -230,10 +236,77 @@ public class Main {
            int regresar = st.nextInt();
            BanderaMenu = regresar == 1;
        }while(BanderaMenu);
+        System.out.println("********** Gracias por su visita, vuelva pronto **********");*/
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        boolean BanderaMenu = true;
+
+        Catalogo catalogo = new Catalogo();
+        catalogo.agregarContenido(new Pelicula("Tom",2000,120,"CN"));
+        catalogo.agregarContenido(new Serie("LALA",2000,120,2, 2));
+        do {
+            System.out.println("********** Peliculas y series **********");
+            System.out.println(" --- Porfavor Elige Una Opcion ---");
+            System.out.println(" 1.- Añadir Pelicula/Serie ");
+            System.out.println(" 2.- Buscar Contenido ");
+            System.out.println(" 3.- Listar Catalogo ");
+            System.out.println(" 4.- Salir ");
+            Scanner seleccionMenu = new Scanner(System.in);
+            int OpcionMenu = seleccionMenu.nextInt();
+            switch (OpcionMenu) {
+                case 1:
+                    System.out.println("Anadir pelicula \n");
+                    System.out.println("Que tipo de contenido agregaras? \n 1.- Pelicula \n 2.- Serie \n");
+                    int Op = seleccionMenu.nextInt();
+                    String titulo, director;
+                    int year, duracionEnMinutos;
+                    seleccionMenu.nextLine();
+                    System.out.println("Escribe el titulo de tu "+((Op == 1) ? "Peli" : "Serie"+"."));
+                    titulo = seleccionMenu.nextLine();
+                    System.out.println("Dame el año de la "+((Op == 1) ? "Peli" : "Serie"+"."));
+                    year = seleccionMenu.nextInt();
+                    System.out.println("Dame la duracion de la "+((Op == 1) ? "Peli" : "Serie"+" en minutos"));
+                    duracionEnMinutos = seleccionMenu.nextInt();
+                    if (Op == 1) {
+                        System.out.println("Dame el nombre del director de tu peli");
+                        director = seleccionMenu.next();
+                        Contenido peli = new Pelicula(titulo, year, duracionEnMinutos, director);
+                        catalogo.agregarContenido(peli);
+                    } else {
+                        int episodios, temporadas;
+                        System.out.println("Dame los episodios");
+                        episodios = seleccionMenu.nextInt();
+                        System.out.println("Dame las temporadas");
+                        temporadas = seleccionMenu.nextInt();
+                        Contenido serie = new Serie(titulo, year, duracionEnMinutos, episodios, temporadas);
+                        catalogo.agregarContenido(serie);
+                    }
+                    break;
+                case 2:
+                    seleccionMenu.nextLine();
+                    System.out.println("Buscar pelicula \n ");
+                    System.out.println("Escribe el titulo que deseas buscar");
+                    titulo = seleccionMenu.nextLine();
+                    catalogo.buscarPorTitulo(titulo);
+                    break;
+                case 3:
+                    System.out.println("Listar Catalogo \n");
+                    catalogo.mostrarTodo();
+                    break;
+                case 4:
+                    BanderaMenu = false;
+                    break;
+                default:
+                    System.out.println("********** Elige una opcion valida **********");
+            }
+        } while (BanderaMenu);
         System.out.println("********** Gracias por su visita, vuelva pronto **********");
 
-
-       /* System.out.println("Holis");*/
+        /*System.out.println("Holis");*/
 
     }
 
