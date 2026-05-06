@@ -13,7 +13,7 @@ public class Catalogo {
     public void buscarPorTitulo (String nombre){
         //Caso ForEach
 
-        /*boolean peliEncontrada = false;
+        boolean peliEncontrada = false;
         for(Contenido item : listCatalogo){
             if (item.titulo.equals(nombre)) {
                 System.out.println("Si existe el contenido exite y es: " + item.titulo);
@@ -23,7 +23,7 @@ public class Catalogo {
         }
         if (!peliEncontrada){
             System.out.println("No existe el contenido");
-        }*/
+        }
 
         //Caso Stream (estructura)
         Contenido item = listCatalogo.stream()
