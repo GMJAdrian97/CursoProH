@@ -4,7 +4,9 @@ import PelisSeries.Contenido;
 import PelisSeries.Serie;
 import PracticaCineRecomendacion.GestorCine;
 import PracticaCineRecomendacion.Pelicula;
-import Streaming.Mensajes;
+import SistemaPedidos.Mensajes;
+import SistemaPedidos.Producto;
+import SistemaPedidos.ServiciosPedidos;
 import Streaming.Usuario;
 import com.sun.security.jgss.GSSUtil;
 
@@ -413,11 +415,11 @@ public class Main {
     /*-------------------- Striming  --------------------*/
 
 
-public class Main {
+/*public class Main {
 
     public static void main(String[] args) {
 
-/*Variables*/
+/*Variables
 
         int opcionMenu;
         boolean continuarMenu = true;
@@ -493,6 +495,46 @@ public class Main {
                     break;
             }
         }while(continuarMenu);
+
+    }
+}*/
+
+/*-------------------- Striming  --------------------*/
+
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner scMenu = new Scanner(System.in);
+        int opMenus;
+        Boolean banderaMenuPrincipal = true;
+
+        Mensajes msj = new Mensajes();
+        ServiciosPedidos servPedidos = new ServiciosPedidos();
+        Producto producto = new Producto();
+
+        servPedidos.cargaDeProductos();
+        if (!servPedidos.dataBaseProductos.isEmpty()){
+            msj.msDataDaseCargada();
+        }
+        msj.msjBienvenida();
+
+        do {
+            msj.msjMenuPincipal();
+            opMenus = scMenu.nextInt();
+            switch (opMenus){
+                case 1:
+                    servPedidos.MostrarMenuProductos();
+                    break;
+                case 2:
+                   servPedidos.MostrarMenuPedidos();
+                    break;
+                case 3:
+                    banderaMenuPrincipal = false;
+                    msj.msjDespedida();
+                    break;
+            }
+        } while (banderaMenuPrincipal);
 
     }
 }
